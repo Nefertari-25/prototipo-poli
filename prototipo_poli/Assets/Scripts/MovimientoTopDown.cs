@@ -4,25 +4,34 @@ using UnityEngine;
 
 public class MovimientoTopDown : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] private float velocidadMovimiento;
+    public float velocidad;
+    private Rigidbody2D rigidBody;
+    private bool mirandoDerecha=true;
 
-    [SerializeField] private Vector2 direccion;
-
-    private Rigidbody2D rb2D;
     private void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        direccion = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        procesarMovimiento();
     }
 
-    private void FixedUpdate()
+    void procesarMovimiento()
     {
-        rb2D.MovePosition(rb2D.position + direccion * velocidadMovimiento * Time.fixedDeltaTime);
+        float inputMovimiento = Input.GetAxis("Horizontal");
+        rigidBody.velocity = new Vector2(inputMovimiento * velocidad, rigidBody.velocity.y);
+        gestionarOrientacion(inputMovimiento);
+    }
+
+    void gestionarOrientacion(float inputMovimiento)
+    {
+        if ((mirandoDerecha == true && inputMovimiento < 0) || (mirandoDerecha == false && inputMovimiento > 0))
+        {
+            mirandoDerecha = !mirandoDerecha;
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+        }
     }
 }
