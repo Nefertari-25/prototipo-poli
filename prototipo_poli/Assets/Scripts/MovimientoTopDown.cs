@@ -21,8 +21,8 @@ public class MovimientoTopDown : MonoBehaviour
 
     void procesarMovimiento()
     {
-        float inputMovimiento = Input.GetAxis("Horizontal");
-        rigidBody.velocity = new Vector2(inputMovimiento * velocidad, rigidBody.velocity.y);
+        float inputMovimiento = Input.GetAxis("Vertical");
+        rigidBody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * velocidad, Input.GetAxisRaw("Vertical") * rigidBody.velocity.y);
         gestionarOrientacion(inputMovimiento);
     }
 
