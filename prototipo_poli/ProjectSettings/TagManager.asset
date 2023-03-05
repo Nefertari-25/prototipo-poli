@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - fondo
+  - gato
   - 
   - 
   - 
@@ -43,4 +43,10 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: jugador
+    uniqueID: 4108342473
+    locked: 0
+  - name: noche
+    uniqueID: 2990162623
     locked: 0
