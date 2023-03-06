@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main menu.unity
+    guid: f5c91579825fd80428a1dda341493188
+  - enabled: 1
+    path: Assets/Scenes/Nivelfloreria.unity
+    guid: ae5c627b9aa0feb4e97527f62845e775
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
